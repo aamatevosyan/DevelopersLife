@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Developers Life</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="profile_photo_description">Avatar</string>
+    <string name="tab_1_text">Последние</string>
+    <string name="tab_2_text">Лучшие</string>
+    <string name="tab_3_text">Горячие</string>
+    <string name="error_text_holder">Произошла ошибка при загрузке данных. Проверьте подключение к сети.</string>
+    <string name="retry_button_text">Повторить</string>
+</resources>
