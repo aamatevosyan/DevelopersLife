@@ -45,7 +45,7 @@ public class MemeBase {
 
     public void loadNextMeme(final Activity activity) {
         if (currentIndex == -1 || currentIndex == memes.size() - 1) {
-            (new AsyncTask<String, Void, String>() {
+            AsyncTask<String, Void, String> execute = new AsyncTask<String, Void, String>() {
                 @Override
                 protected String doInBackground(String... params) {
                     String result = null;
@@ -89,7 +89,7 @@ public class MemeBase {
                         e.printStackTrace();
                     }
                 }
-            }).execute(String.format("https://developerslife.ru/%s/%d?json=true", category, ++currentPage));
+            }.execute(String.format("https://developerslife.ru/%s/%d?json=true", category, ++currentPage));
         } else {
             try {
                 loadMeme(activity, memes.get(++currentIndex));

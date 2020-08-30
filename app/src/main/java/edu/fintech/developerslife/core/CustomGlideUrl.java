@@ -5,7 +5,7 @@ import com.bumptech.glide.load.model.GlideUrl;
 import java.net.URL;
 
 public class CustomGlideUrl extends GlideUrl {
-    String id;
+    private String id;
     public CustomGlideUrl(URL url, String id) {
         super(url);
         this.id = id;

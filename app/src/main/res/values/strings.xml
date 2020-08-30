@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">Developers Life</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
     <string name="profile_photo_description">Avatar</string>
     <string name="tab_1_text">Последние</string>
     <string name="tab_2_text">Лучшие</string>

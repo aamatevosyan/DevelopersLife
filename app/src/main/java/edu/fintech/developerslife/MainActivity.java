@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,11 +14,8 @@ import java.util.HashMap;
 import edu.fintech.developerslife.core.MemeBase;
 
 public class MainActivity extends AppCompatActivity {
-
-    static final String TAG = "MainActivity";
-
-    HashMap<String, MemeBase> memeBaseHashMap = new HashMap<>();
-    MemeBase currentMemeBase;
+    private final HashMap<String, MemeBase> memeBaseHashMap = new HashMap<>();
+    private MemeBase currentMemeBase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                Log.i(TAG, tab.getText().toString() + " was selected.");
                 currentMemeBase = memeBaseHashMap.get(tab.getText().toString());
+
                 if (currentMemeBase.isPreviousAvailable())
                     currentMemeBase.currentIndex--;
                 currentMemeBase.loadNextMeme(MainActivity.this);
@@ -45,11 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-//                TextView textView = findViewById(R.id.descriptionView);
-//                textView.setText("");
-//
-//                ImageView imageView = findViewById(R.id.memeImageView);
-//                imageView.setImageDrawable(null);
             }
 
             @Override
@@ -62,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         currentMemeBase.loadNextMeme(this);
 
         final Button backButton = findViewById(R.id.backButton);
-        backButton.setEnabled(false);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                     backButton.setEnabled(false);
             }
         });
+        backButton.setEnabled(false);
 
         Button nextButton = findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener() {
@@ -89,8 +79,5 @@ public class MainActivity extends AppCompatActivity {
                 backButton.setEnabled(currentMemeBase.isPreviousAvailable());
             }
         });
-
-
-        //Button nextButton = findViewById(R.id.nextButton)
     }
 }
